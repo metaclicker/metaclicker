@@ -1,9 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { Hello } from "./components/Hello";
+import { Game } from "./components/Game";
 
-ReactDOM.render(
-    <Hello who="world" />,
-    document.getElementsByTagName("main")[0]
-);
+ReactDOM.render(<Game/>, document.getElementsByTagName("main")[0]);
