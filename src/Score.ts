@@ -1,4 +1,5 @@
 export interface Score {
-    clickers: number;
     clicks: number;
+    clickers: number;
+    players: number;
 }
