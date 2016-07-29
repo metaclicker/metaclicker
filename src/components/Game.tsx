@@ -59,28 +59,4 @@ export class Game extends React.Component<{}, Score> {
             players: this.state.players,
         });
     }
-
-    buyClicker() {
-        this.setState({
-            clicks: this.state.clicks,
-            clickers: this.state.clickers + 1,
-            players: this.state.players,
-        });
-    }
-
-    playGames() {
-        this.setState({
-            clicks: this.state.clicks + this.state.clickers,
-            clickers: this.state.clickers,
-            players: this.state.players,
-        });
-    }
-
-    advertise() {
-        this.setState({
-            clicks: this.state.clicks,
-            clickers: this.state.clickers,
-            players: this.state.players + 1,
-        });
-    }
 }
