@@ -1,6 +1,9 @@
 import * as React from "react";
 import {Score} from "./Score";
+import {FixedPanel} from "./FixedPanel";
+import {FlexPanel} from "./FlexPanel";
 import {Scorebox} from "./Scorebox";
+import {ActionButton} from "./ActionButton";
 
 export class Game extends React.Component<{}, Score> {
     constructor(props: {}) {
@@ -11,10 +14,16 @@ export class Game extends React.Component<{}, Score> {
 
     render() {
         return <div>
-            <Scorebox clickers={this.state.clickers} clicks={this.state.clicks}/>
-            <br/><br/><br/><br/>
-            <button onClick={() => this.click()}>Click</button>
-            <button onClick={() => this.metaclick()}>Metaclick</button>
+            <FixedPanel x={150} y={20}>
+                <Scorebox clickers={this.state.clickers} clicks={this.state.clicks}/>
+            </FixedPanel>
+
+            <FixedPanel x={20} y={20}>
+                <FlexPanel direction="column">
+                    <ActionButton onClick={() => this.click()} label="Click"/>
+                    <ActionButton onClick={() => this.metaclick()} label="Metaclick"/>
+                </FlexPanel>
+            </FixedPanel>
         </div>;
     }
 
