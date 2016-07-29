@@ -14,6 +14,6 @@
   },
   "scripts": {
     "postinstall": "typings install",
-    "deploy": "webpack -p && git --git-dir=../metaclicker.github.io/.git --work-tree=dist/ add -A && git --git-dir=../metaclicker.github.io/.git commit -m deploy && git --git-dir=../metaclicker.github.io/.git push"
+    "test": "webpack -p && git --git-dir=../metaclicker.github.io/.git --work-tree=dist/ add -A && git --git-dir=../metaclicker.github.io/.git commit -m deploy && git --git-dir=../metaclicker.github.io/.git push"
   }
 }
