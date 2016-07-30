@@ -24,6 +24,6 @@
     padding: 2px;
 }
 
-.button:hover .tooltip {
+.disabled:hover .tooltip {
     visibility: visible;
 }

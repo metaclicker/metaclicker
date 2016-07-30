@@ -9,14 +9,11 @@ interface Props {
 }
 
 export function ActionButton(props: Props) {
-    if (props.error == null) {
-        return <button className={styles['button']} onClick={props.onClick}>
-                   {props.label}
-               </button>;
-    } else {
-        return <button className={[styles['button'] + " " + styles['disabled']]} disabled={true}>
-        	       {props.label}
-	               <div className={styles['tooltip']}>{props.error}</div>
-	           </button>;
-    }
+    let c = props.error == null ? styles['button'] : styles['button'] + " " + styles['disabled'];
+    return <button className={c} 
+                   onClick={props.onClick}
+                   disabled={props.error != null}>
+               {props.label}
+               <div className={styles['tooltip']}>{props.error}</div>
+           </button>;
 }
