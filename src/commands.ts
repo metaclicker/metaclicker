@@ -10,27 +10,38 @@ export interface Command {
 }
 
 export let all: Command[] = [
+    { type: "COMMAND", commandType: "DEVELOP", name: "Develop a new game", cost: 50 },
     { type: "COMMAND", commandType: "PLAY", name: "Play your own games", cost: 0 },
     { type: "COMMAND", commandType: "ADVERTISE", name: "Advertise on forums", cost: 5 },
-    { type: "COMMAND", commandType: "DEVELOP", name: "Develop a new game", cost: 50 }
 ]
 
-export function reduce(s: state.Score, a: Command): state.Score {
-    let score = Object.assign({}, s, {clicks: s.clicks - a.cost});
+export function reduce(s: state.State, a: Command): state.State {
+    let newState: state.State = {
+        clicks: s.clicks - a.cost,
+        clickers: s.clickers.map(c => ({
+            name: c.name,
+            players: c.players
+        }))
+    };
 
-    switch (a.commandType) {           
+    switch (a.commandType) {     
+        case "DEVELOP":
+            newState.clickers.push({
+                name: "Clicker Game",
+                players: 0
+            });
+            break;
+      
         case "PLAY":
-            score.clicks += s.clickers;
+            newState.clicks += s.clickers.length;
             break;
 
         case "ADVERTISE":
-            score.players++;
-            break;
-
-        case "DEVELOP":
-            score.clickers++;
+            for (let c of newState.clickers) {
+            	c.players++;
+            }
             break;
     }
 
-    return score;
+    return newState;
 }

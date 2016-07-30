@@ -20,5 +20,9 @@ function _Scores(props: Props) {
 }
 
 export let Scores = ReactRedux.connect(
-    (s:state.Score) => ({clickers: s.clickers, clicks: s.clicks, players: s.players})
+    (s:state.State) => ({
+        clicks: s.clicks,
+        clickers: s.clickers.length,
+        players: s.clickers.map(c => c.players).reduce((x, y) => x + y, 0)
+    })
 )(_Scores)

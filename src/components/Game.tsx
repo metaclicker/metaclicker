@@ -7,11 +7,7 @@ import {BorderPanel} from "../widgets/BorderPanel";
 import {Scores} from "./Scores";
 import {Menu} from "./Menu";
 
-interface Props {
-    score: state.Score
-}
-
-class _Game extends React.Component<Props, {}> {
+export class Game extends React.Component<{}, {}> {
     render() {
         return <FlexPanel height="100px" direction="row" justify="space-around">
             <BorderPanel width="800px" border="0px 2px 2px 2px">
@@ -30,10 +26,6 @@ class _Game extends React.Component<Props, {}> {
         </FlexPanel>;
     }
 }
-
-export let Game = ReactRedux.connect(
-    (s:state.Score) => ({score: s}) 
-)(_Game)
 
 declare var module: any;
 if (module.hot) {

@@ -14,13 +14,13 @@ export function tick(): Action {
     }
 }
 
-export function reduce(s: state.Score, a: Action): state.Score {
+export function reduce(s: state.State, a: Action): state.State {
     if (typeof s === "undefined") { return init(); }
     
     switch (a.type) {
         case "TICK":
             return Object.assign({}, s, {
-                clicks: s.clicks + (s.players * s.clickers),
+                clicks: s.clicks + s.clickers.map(c => c.players).reduce((x, y) => x + y, 0),
             });
 
         case "COMMAND":
@@ -31,10 +31,9 @@ export function reduce(s: state.Score, a: Action): state.Score {
     }
 }
 
-function init(): state.Score {
+function init(): state.State {
     return {
-        clickers: 1,
-        players: 0,
-        clicks: 0,
+        clicks: 50,
+        clickers: []
     }
 }
