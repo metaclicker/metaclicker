@@ -1,4 +1,5 @@
 import * as React from "react";
+import {FlexPanel} from "./FlexPanel";
 
 interface Props {
     label: string,
@@ -17,6 +18,12 @@ export function ActionButton(props: Props) {
         margin: 2
     }
 
-    return <button style={style} disabled={props.error != null}
-                   onClick={props.onClick}>{props.label}</button>;
+    if (props.error == null) {
+        return <button style={style} onClick={props.onClick}>{props.label}</button>;
+    } else {
+        return <FlexPanel direction="column">
+            <button style={style} disabled={true}>{props.label}</button>
+            {props.error}
+        </FlexPanel>;
+    }
 }
