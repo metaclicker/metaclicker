@@ -13,24 +13,18 @@ interface Props {
 
 class _Game extends React.Component<Props, {}> {
     render() {
-        return <FlexPanel height="100vh" direction="row" justify="space-around">
-            <BorderPanel width="700px" border="0px 2px 0px 2px">
-                <FlexPanel direction="column" justify="space-between" align="center">
-                    <FixedPanel x={20} y={20} position="left" height="100" width="200">
+        return <FlexPanel height="100px" direction="row" justify="space-around">
+            <BorderPanel width="800px" border="0px 2px 2px 2px">
+                <FlexPanel direction="row">
+                    <BorderPanel width="200px" border="0px 2px 0px 0px">
+                        <Scores/>
+                    </BorderPanel>
+
+                    <div style={{flex: 1, fontFamily: "Verdana", fontSize: "48pt", textAlign: "center"}}>Metaclicker</div>
+
+                    <BorderPanel width="200px" border="0px 0px 0px 2px">
                         <Menu/>
-                    </FixedPanel>
-                    
-                    <FixedPanel x={20} y={20} position="right" height="100" width="200">
-                        <Scores {...this.props.score}/>
-                    </FixedPanel>   
-
-                    <FlexPanel height="auto" direction="row" justify="space-around">
-                        <div style={{fontFamily: "Verdana", fontSize: "24pt"}}>Metaclicker</div>
-                    </FlexPanel>
-
-                    <div>(content goes here)</div>
-
-                    <div>footer content??</div>
+                    </BorderPanel>
                 </FlexPanel>
             </BorderPanel>
         </FlexPanel>;

@@ -13,15 +13,12 @@ interface Props {
 }
 
 function _Menu(props: Props) {
-    return <BorderPanel border="2px 2px 2px 2px" padding={5}>
-        <FlexPanel direction="column">
-            <HeaderText key="span">Actions:</HeaderText>
-            {commands.all.map(c => <ActionButton key={c.name} 
-                                                 label={c.name}
-                                                 error={props.score.clicks >= c.cost ? null : "requires " + c.cost + " clicks"}
-                                                 onClick={() => props.onCommand(c)}/>)}
-        </FlexPanel>
-    </BorderPanel>
+    return <FlexPanel direction="column" padding="5px">
+        {commands.all.map(c => <ActionButton key={c.name} 
+                                                label={c.name}
+                                                error={props.score.clicks >= c.cost ? null : "requires " + c.cost + " clicks"}
+                                                onClick={() => props.onCommand(c)}/>)}
+    </FlexPanel>;
 }
 
 export let Menu = ReactRedux.connect(

@@ -10,20 +10,20 @@ interface Props {
 }
 
 export function FixedPanel(props: Props) {
-    var containerStyle: React.CSSProperties = {
-        position: "absolute", 
+    var panelStyle: React.CSSProperties = {
         width: props.width || "auto",
         height: props.height || "auto",
+        position: "absolute", 
         top: props.y,
     } 
 
     if (props.position == "left") {
-        containerStyle.left = props.x;
+        panelStyle.left = props.x;
     } else {
-        containerStyle.right = props.x;
+        panelStyle.right = props.x;
     }
 
-    return <div style={containerStyle}>
+    return <div style={panelStyle}>
         {props.children}
     </div>;
 }
