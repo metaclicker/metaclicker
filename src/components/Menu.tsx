@@ -15,7 +15,7 @@ export class Menu extends React.Component<{}, {}> {
                         <Scores/>
                     </BorderPanel>
 
-                    <div style={{flex: 1, fontFamily: "Verdana", fontSize: "48pt", textAlign: "center"}}>Metaclicker</div>
+                    <div style={{flex: 1, fontFamily: "Verdana", fontSize: "48pt", color: "#222", textAlign: "center"}}>Metaclicker</div>
 
                     <BorderPanel width="200px" border="0px 0px 0px 2px">
                         <Commands/>

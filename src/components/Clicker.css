@@ -1,0 +1,14 @@
+.oval {
+    font-family: Verdana;
+    color: #222;
+    background-color: #ddd;
+    border: 1px solid black;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+   -webkit-user-select: none;   
+   -moz-user-select: none;      
+   -ms-user-select: none;       
+}

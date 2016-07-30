@@ -2,6 +2,7 @@ import * as React from "react";
 import * as ReactRedux from "react-redux";
 import * as state from "../state";
 import {FixedPanel} from "../widgets/FixedPanel";
+import {Clicker} from "./Clicker";
 
 interface Props {
     clickers: state.Clicker[];
@@ -24,7 +25,7 @@ class _Canvas extends React.Component<Props, State> {
             {Object.keys(this.state.locations).map(k => {
                 let l = this.state.locations[k];  
                 return <FixedPanel key={k} position="left" x={l.x} y={l.y}>
-                    {k}
+                    <Clicker {...this.props.clickers.filter(c => c.name == k)[0]}/>
                 </FixedPanel>
             })}
         </div>;
@@ -66,14 +67,14 @@ class _Canvas extends React.Component<Props, State> {
 
     static makeLocation(state: State) {
         let l = {
-            x: state.width/2,
-        	y: state.height/2
+            x: (state.width - Clicker.width)/2,
+        	y: (state.height - Clicker.height)/2
         };
 
         while (Object.keys(state.locations).filter(k => _Canvas.tooClose(l, state.locations[k])).length > 0) {
             l = {
-                x: Math.random() * state.width,
-                y: Math.random() * state.height
+                x: Math.random() * (state.width - Clicker.width),
+                y: Math.random() * (state.height - Clicker.height)
             };
         }
 
@@ -81,7 +82,8 @@ class _Canvas extends React.Component<Props, State> {
     }
 
     static tooClose(l1: {x: number, y: number}, l2: {x: number, y: number}): boolean {
-        return Math.abs(l1.x - l2.x) < 30 && Math.abs(l1.y - l2.y) < 10;
+        return Math.abs(l1.x - l2.x) < (Clicker.width/2) && 
+               Math.abs(l1.y - l2.y) < (Clicker.height/2);
     }
 }
 
