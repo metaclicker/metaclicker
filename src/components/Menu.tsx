@@ -1,27 +1,27 @@
 import * as React from "react";
-import * as ReactRedux from "react-redux";
 import * as state from "../state";
-import * as commands from "../commands";
 import {FlexPanel} from "../widgets/FlexPanel";
+import {FixedPanel} from "../widgets/FixedPanel";
 import {BorderPanel} from "../widgets/BorderPanel";
-import {HeaderText} from "../widgets/HeaderText";
-import {ActionButton} from "../widgets/ActionButton";
+import {Scores} from "./Scores";
+import {Commands} from "./Commands";
 
-interface Props {
-    clicks: number,
-    onCommand: (c: commands.Command) => void
+export class Menu extends React.Component<{}, {}> {
+    render() {
+        return <FlexPanel height="80px" direction="row" justify="space-around">
+            <BorderPanel width="800px" border="0px 2px 2px 2px">
+                <FlexPanel direction="row">
+                    <BorderPanel width="200px" border="0px 2px 0px 0px">
+                        <Scores/>
+                    </BorderPanel>
+
+                    <div style={{flex: 1, fontFamily: "Verdana", fontSize: "48pt", textAlign: "center"}}>Metaclicker</div>
+
+                    <BorderPanel width="200px" border="0px 0px 0px 2px">
+                        <Commands/>
+                    </BorderPanel>
+                </FlexPanel>
+            </BorderPanel>
+        </FlexPanel>;
+    }
 }
-
-function _Menu(props: Props) {
-    return <FlexPanel direction="column" padding="5px">
-        {commands.all.map(c => <ActionButton key={c.name} 
-                                                label={c.name}
-                                                error={props.clicks >= c.cost ? null : "requires " + c.cost + " clicks"}
-                                                onClick={() => props.onCommand(c)}/>)}
-    </FlexPanel>;
-}
-
-export let Menu = ReactRedux.connect(
-    (s:state.State) => ({clicks: s.clicks}), 
-    (dispatch: ReactRedux.Dispatch<any>) => ({onCommand: (c: commands.Command) => {dispatch(c);}}) 
-)(_Menu)
