@@ -2,16 +2,18 @@ import * as React from "react";
 
 interface Props {
     children?: React.ReactChild,
-    color?: string,
-    border?: string,
+    width?: string,
+    height?: string
     padding?: number,
     margin?: number
+    color?: string,
+    border?: string,
 }
 
-export function Box(props: Props) {
+export function BorderPanel(props: Props) {
     let style = {
-        height: "100%",
-        width: "100%",
+        width: props.width || "100%",
+        height: props.height || "100%",
         padding: props.padding,
         margin: props.margin,
         borderStyle: "solid",

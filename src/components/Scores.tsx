@@ -1,15 +1,15 @@
 import * as React from "react";
 import {Score} from "../state";
-import {FlexPanel} from "../layout/FlexPanel";
-import {Box} from "../layout/Box";
-import {Header} from "../widgets/Header";
+import {FlexPanel} from "../widgets/FlexPanel";
+import {BorderPanel} from "../widgets/BorderPanel";
+import {HeaderText} from "../widgets/HeaderText";
 
 export function Scores(props: Score) {
-    return <Box color="green" padding={5}>
+    return <BorderPanel color="green" padding={5}>
         <FlexPanel direction="column">
-            <Header>Clickers: {props.clickers}</Header>
-            <Header>Players: {props.players}</Header>
-            <Header>Clicks: {props.clicks}</Header>
+            <HeaderText>Clickers: {props.clickers}</HeaderText>
+            <HeaderText>Players: {props.players}</HeaderText>
+            <HeaderText>Clicks: {props.clicks}</HeaderText>
         </FlexPanel>
-    </Box>;
+    </BorderPanel>;
 }

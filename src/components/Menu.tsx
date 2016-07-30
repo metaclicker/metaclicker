@@ -2,9 +2,9 @@ import * as React from "react";
 import * as ReactRedux from "react-redux";
 import * as state from "../state";
 import * as commands from "../commands";
-import {FlexPanel} from "../layout/FlexPanel";
-import {Box} from "../layout/Box";
-import {Header} from "../widgets/Header";
+import {FlexPanel} from "../widgets/FlexPanel";
+import {BorderPanel} from "../widgets/BorderPanel";
+import {HeaderText} from "../widgets/HeaderText";
 import {ActionButton} from "../widgets/ActionButton";
 
 interface Props {
@@ -13,15 +13,15 @@ interface Props {
 }
 
 function _Menu(props: Props) {
-    return <Box color="green" padding={5}>
+    return <BorderPanel color="green" padding={5}>
         <FlexPanel direction="column">
-            <Header key="span">Actions:</Header>
+            <HeaderText key="span">Actions:</HeaderText>
             {commands.all.map(c => <ActionButton key={c.name} 
                                                  label={c.name}
                                                  error={props.score.clicks >= c.cost ? null : "requires " + c.cost + " clicks"}
                                                  onClick={() => props.onCommand(c)}/>)}
         </FlexPanel>
-    </Box>
+    </BorderPanel>
 }
 
 export let Menu = ReactRedux.connect(

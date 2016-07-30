@@ -1,10 +1,10 @@
 import * as React from "react";
-let styles = require("./Header.css");
+let styles = require("./HeaderText.css");
 
 interface Props {
     children?: React.ReactChild,
 }
 
-export function Header(props: Props) {
+export function HeaderText(props: Props) {
     return <span className={styles['header']}>{props.children}</span>;
 }
