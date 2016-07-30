@@ -15,14 +15,14 @@
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
-    "babel-plugin-react-transform": "^2.0.2",
-    "react-transform-hmr": "^1.0.4",
+    "babel-preset-stage-0": "^6.5.0",
+    "react-hot-loader": "^3.0.0-beta.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
     "postinstall": "typings install",
-    "start": "webpack-dev-server --hot --inline --progress --colors --config webpack.dev.js --content-base ./dist --port 8080",
-    "test": "webpack -p && git --git-dir=../metaclicker.github.io/.git --work-tree=dist/ add -A && git --git-dir=../metaclicker.github.io/.git commit -m deploy && git --git-dir=../metaclicker.github.io/.git push"
+    "start": "webpack-dev-server --hot --progress --colors --config webpack.dev.js --content-base ./dist --port 8080",
+    "test": "webpack && git --git-dir=../metaclicker.github.io/.git --work-tree=dist/ add -A && git --git-dir=../metaclicker.github.io/.git commit -m deploy && git --git-dir=../metaclicker.github.io/.git push"
   }
 }
