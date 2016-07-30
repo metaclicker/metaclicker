@@ -1,11 +1,11 @@
 import * as React from "react";
-import {Score} from "../Score";
-import {Box} from "./Box";
+import {Score} from "../state";
+import {FlexPanel} from "./FlexPanel";
 
 export function Scorebox(props: Score) {
-    return <Box>
+    return <FlexPanel direction="column">
         Clickers: {props.clickers}<br/>
         Players: {props.players}<br/>
         Clicks: {props.clicks}
-    </Box>;
+    </FlexPanel>;
 }

@@ -1,6 +1,4 @@
 import * as React from "react";
-import {Score} from "./Score";
-
 interface Props {
     children?: React.ReactChild,
     x: number,

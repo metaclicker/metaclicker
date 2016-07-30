@@ -1,9 +1,13 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-
+import * as Redux from "redux";
+import * as ReactRedux from "react-redux";
+import * as actions from "./actions";
 import { Game } from "./components/Game";
 
-ReactDOM.render(<Game/>, document.getElementsByTagName("main")[0]);
+let store = Redux.createStore(actions.reduce)
+setInterval(() => store.dispatch(actions.tick()), 1000);
+ReactDOM.render(<ReactRedux.Provider store={store}><Game/></ReactRedux.Provider>, document.getElementsByTagName("main")[0]);
 
 declare var module: any;
 if (module.hot) {
