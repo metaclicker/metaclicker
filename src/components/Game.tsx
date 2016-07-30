@@ -39,3 +39,8 @@ export let Game = ReactRedux.connect(
     (s:state.Score) => ({score: s}), 
     (dispatch: ReactRedux.Dispatch<any>) => ({onCommand: (c: commands.Command) => {dispatch(c);}}) 
 )(_Game)
+
+declare var module: any;
+if (module.hot) {
+    module.hot.accept();
+}

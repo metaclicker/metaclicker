@@ -11,5 +11,8 @@ ReactDOM.render(<ReactRedux.Provider store={store}><Game/></ReactRedux.Provider>
 
 declare var module: any;
 if (module.hot) {
-    module.hot.accept();
+    module.hot.accept(['./actions'], () => {
+      const nextRootReducer = (require('./actions') as any).reduce;
+      store.replaceReducer(nextRootReducer);
+    });
 }
