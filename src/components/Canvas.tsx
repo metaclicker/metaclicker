@@ -23,7 +23,7 @@ class _Canvas extends React.Component<Props, State> {
         return <div ref="canvas" style={{flex: "1", position: "relative"}}>
             {Object.keys(this.state.locations).map(k => {
                 let l = this.state.locations[k];  
-                return <FixedPanel position="left" x={l.x} y={l.y}>
+                return <FixedPanel key={k} position="left" x={l.x} y={l.y}>
                     {k}
                 </FixedPanel>
             })}
@@ -55,13 +55,33 @@ class _Canvas extends React.Component<Props, State> {
         for (let c of props.clickers) {
             if (!this.state.locations[c.name]) {
                 dirty = true;
-                this.state.locations[c.name] = {x: this.state.width/2, y: this.state.height/2}
+                this.state.locations[c.name] = _Canvas.makeLocation(this.state);
             }
         }
 
         if (dirty) {
             this.setState(this.state);
         }
+    }
+
+    static makeLocation(state: State) {
+        let l = {
+            x: state.width/2,
+        	y: state.height/2
+        };
+
+        while (Object.keys(state.locations).filter(k => _Canvas.tooClose(l, state.locations[k])).length > 0) {
+            l = {
+                x: Math.random() * state.width,
+                y: Math.random() * state.height
+            };
+        }
+
+        return l;
+    }
+
+    static tooClose(l1: {x: number, y: number}, l2: {x: number, y: number}): boolean {
+        return Math.abs(l1.x - l2.x) < 30 && Math.abs(l1.y - l2.y) < 10;
     }
 }
 
