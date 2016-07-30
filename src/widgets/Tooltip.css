@@ -1,0 +1,14 @@
+.tooltip {
+    visibility: hidden;
+    position: absolute;
+    right: -80px;
+    z-index: 1;
+    background-color: white;
+    color: black;
+    border: 1px solid green;
+    padding: 2px;
+}
+
+.target:hover .tooltip {
+    visibility: visible;
+}
