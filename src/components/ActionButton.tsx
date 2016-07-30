@@ -1,5 +1,6 @@
 import * as React from "react";
 import {FlexPanel} from "./FlexPanel";
+let styles = require("./ActionButton.css");
 
 interface Props {
     label: string,
@@ -8,22 +9,14 @@ interface Props {
 }
 
 export function ActionButton(props: Props) {
-    let style: React.CSSProperties = {
-        fontFamily: "Verdana", 
-        fontSize: 18, 
-        color: props.error == null ? "blue" : "grey",
-        textDecoration: "underline",
-        backgroundColor: "white",
-        border: "0px",
-        margin: 2
-    }
-
     if (props.error == null) {
-        return <button style={style} onClick={props.onClick}>{props.label}</button>;
+        return <button className={styles['button']} onClick={props.onClick}>
+                   {props.label}
+               </button>;
     } else {
-        return <FlexPanel direction="column">
-            <button style={style} disabled={true}>{props.label}</button>
-            {props.error}
-        </FlexPanel>;
+        return <button className={[styles['button'] + " " + styles['disabled']]} disabled={true}>
+        	       {props.label}
+	               <div className={styles['tooltip']}>{props.error}</div>
+	           </button>;
     }
 }

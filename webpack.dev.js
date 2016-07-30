@@ -28,6 +28,7 @@ module.exports = {
                 plugins: ["react-hot-loader/babel"]
             } },
             { test: /\.ts(x?)$/, loader: "ts" },
+            { test: /\.css/, loader: 'style!css?modules&sourceMap' },
         ]
     }
 };

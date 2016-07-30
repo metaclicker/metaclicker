@@ -25,7 +25,7 @@ class _Game extends React.Component<Props, {}> {
                     <FlexPanel direction="column">
                         <span key="span">Actions:</span>
                         {commands.all.map(c => <ActionButton key={c.name} 
-                                                             label={c.cost + " clicks: " + c.name}
+                                                             label={c.name}
                                                              error={this.props.score.clicks >= c.cost ? null : "requires " + c.cost + " clicks"}
                                                              onClick={() => this.props.onCommand(c)}/>)}
                     </FlexPanel>
