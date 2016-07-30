@@ -5,7 +5,7 @@ import {BorderPanel} from "../widgets/BorderPanel";
 import {HeaderText} from "../widgets/HeaderText";
 
 export function Scores(props: Score) {
-    return <BorderPanel color="green" padding={5}>
+    return <BorderPanel border="2px 2px 2px 2px" padding={5}>
         <FlexPanel direction="column">
             <HeaderText>Clickers: {props.clickers}</HeaderText>
             <HeaderText>Players: {props.players}</HeaderText>

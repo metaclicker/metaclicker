@@ -13,7 +13,7 @@ interface Props {
 }
 
 function _Menu(props: Props) {
-    return <BorderPanel color="green" padding={5}>
+    return <BorderPanel border="2px 2px 2px 2px" padding={5}>
         <FlexPanel direction="column">
             <HeaderText key="span">Actions:</HeaderText>
             {commands.all.map(c => <ActionButton key={c.name} 
