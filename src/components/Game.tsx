@@ -17,20 +17,26 @@ class _Game extends React.Component<Props, {}> {
         return <FlexPanel height="100vh" direction="row" justify="space-around">
             <Panel width="700px">
                 <Box border="0px 2px 0px 2px">
-                    <FlexPanel direction="column" justify="space-between" align="center">    
-                        <FixedPanel x={20} y={20} position="left">
+                    <FlexPanel direction="column">
+                        <FixedPanel x={20} y={20} position="left" height="100" width="200">
                             <Menu/>
                         </FixedPanel>
                         
-                        <FixedPanel x={20} y={20} position="right">
+                        <FixedPanel x={20} y={20} position="right" height="100" width="200">
                             <Scores {...this.props.score}/>
-                        </FixedPanel>     
+                        </FixedPanel>   
 
-                        <div>Header or game title or something!</div>
+                        <FlexPanel height="auto" direction="row" justify="space-around">
+                            <div style={{fontFamily: "Verdana", fontSize: "24pt"}}>Metaclicker</div>
+                        </FlexPanel>
 
-                        <div>(content goes here)</div>
+                        <FlexPanel direction="column" justify="space-around" align="center">
+                            <div>Header or game title or something!</div>
 
-                        <div>footer content??</div>
+                            <div>(content goes here)</div>
+
+                            <div>footer content??</div>
+                        </FlexPanel>
                     </FlexPanel>
                 </Box>
             </Panel>

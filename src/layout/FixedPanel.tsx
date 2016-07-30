@@ -2,20 +2,28 @@ import * as React from "react";
 
 interface Props {
     children?: React.ReactChild,
-    x: number,
-    y: number,
     position: "left" | "right"
+    x?: number,
+    y?: number,
+    width?: string,
+    height?: string
 }
 
 export function FixedPanel(props: Props) {
-    var style: React.CSSProperties 
+    var containerStyle: React.CSSProperties = {
+        position: "absolute", 
+        width: props.width || "auto",
+        height: props.height || "auto",
+        top: props.y,
+    } 
+
     if (props.position == "left") {
-        style = {position: "absolute", top: props.y, left: props.x};
+        containerStyle.left = props.x;
     } else {
-        style = {position: "absolute", top: props.y, right: props.x};
+        containerStyle.right = props.x;
     }
 
-    return <div style={style}>
+    return <div style={containerStyle}>
         {props.children}
     </div>;
 }
