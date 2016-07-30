@@ -1,8 +1,8 @@
 import * as React from "react";
 import {Score} from "../state";
-import {FlexPanel} from "./FlexPanel";
-import {Header} from "./Header";
-import {Box} from "./Box";
+import {FlexPanel} from "../layout/FlexPanel";
+import {Box} from "../layout/Box";
+import {Header} from "../widgets/Header";
 
 export function Scores(props: Score) {
     return <Box color="green" padding={5}>

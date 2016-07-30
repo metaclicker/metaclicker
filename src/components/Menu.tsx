@@ -2,10 +2,10 @@ import * as React from "react";
 import * as ReactRedux from "react-redux";
 import * as state from "../state";
 import * as commands from "../commands";
-import {FlexPanel} from "./FlexPanel";
-import {Header} from "./Header";
-import {Box} from "./Box";
-import {ActionButton} from "./ActionButton";
+import {FlexPanel} from "../layout/FlexPanel";
+import {Box} from "../layout/Box";
+import {Header} from "../widgets/Header";
+import {ActionButton} from "../widgets/ActionButton";
 
 interface Props {
     score: state.Score,

@@ -1,11 +1,10 @@
 import * as React from "react";
 import * as ReactRedux from "react-redux";
 import * as state from "../state";
-import {Panel} from "./Panel";
-import {FlexPanel} from "./FlexPanel";
-import {FixedPanel} from "./FixedPanel";
-import {Box} from "./Box";
-import {Header} from "./Header";
+import {Panel} from "../layout/Panel";
+import {FlexPanel} from "../layout/FlexPanel";
+import {FixedPanel} from "../layout/FixedPanel";
+import {Box} from "../layout/Box";
 import {Scores} from "./Scores";
 import {Menu} from "./Menu";
 

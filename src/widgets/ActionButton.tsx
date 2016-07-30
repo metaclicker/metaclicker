@@ -1,5 +1,5 @@
 import * as React from "react";
-import {FlexPanel} from "./FlexPanel";
+import {FlexPanel} from "../layout/FlexPanel";
 let styles = require("./ActionButton.css");
 
 interface Props {
