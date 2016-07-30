@@ -27,7 +27,7 @@ export function reduce(s: state.State, a: Command): state.State {
     switch (a.commandType) {     
         case "DEVELOP":
             newState.clickers.push({
-                name: "Clicker Game",
+                name: getUniqueName(newState.clickers),
                 players: 0
             });
             break;
@@ -44,4 +44,8 @@ export function reduce(s: state.State, a: Command): state.State {
     }
 
     return newState;
+}
+
+function getUniqueName(clickers: state.Clicker[]): string {
+    return "Clicker Game " + (clickers.length + 1);
 }
