@@ -7,7 +7,7 @@ import { Game } from "./components/Game";
 
 let store = Redux.createStore(actions.reduce)
 setInterval(() => store.dispatch(actions.tick()), 1000);
-ReactDOM.render(<ReactRedux.Provider store={store}><Game/></ReactRedux.Provider>, document.getElementsByTagName("main")[0]);
+ReactDOM.render(<ReactRedux.Provider store={store}><Game/></ReactRedux.Provider>, document.getElementsByTagName("body")[0]);
 
 declare var module: any;
 if (module.hot) {

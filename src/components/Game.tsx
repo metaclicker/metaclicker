@@ -1,43 +1,46 @@
 import * as React from "react";
 import * as ReactRedux from "react-redux";
 import * as state from "../state";
-import * as commands from "../commands";
-import {FixedPanel} from "./FixedPanel";
+import {Panel} from "./Panel";
 import {FlexPanel} from "./FlexPanel";
-import {Scorebox} from "./Scorebox";
-import {ActionButton} from "./ActionButton";
+import {FixedPanel} from "./FixedPanel";
 import {Box} from "./Box";
+import {Header} from "./Header";
+import {Scores} from "./Scores";
+import {Menu} from "./Menu";
 
 interface Props {
-    score: state.Score,
-    onCommand: (c: commands.Command) => void
+    score: state.Score
 }
 
 class _Game extends React.Component<Props, {}> {
     render() {
-        return <div>
-            <FixedPanel x={20} y={20} position="right">
-                <Box><Scorebox {...this.props.score}/></Box>
-            </FixedPanel>
+        return <FlexPanel height="100vh" direction="row" justify="space-around">
+            <Panel width="700px">
+                <Box border="0px 2px 0px 2px">
+                    <FlexPanel direction="column" justify="space-between" align="center">    
+                        <FixedPanel x={20} y={20} position="left">
+                            <Menu/>
+                        </FixedPanel>
+                        
+                        <FixedPanel x={20} y={20} position="right">
+                            <Scores {...this.props.score}/>
+                        </FixedPanel>     
 
-            <FixedPanel x={20} y={20} position="left">
-                <Box>
-                    <FlexPanel direction="column">
-                        <span key="span">Actions:</span>
-                        {commands.all.map(c => <ActionButton key={c.name} 
-                                                             label={c.name}
-                                                             error={this.props.score.clicks >= c.cost ? null : "requires " + c.cost + " clicks"}
-                                                             onClick={() => this.props.onCommand(c)}/>)}
+                        <div>Header or game title or something!</div>
+
+                        <div>(content goes here)</div>
+
+                        <div>footer content??</div>
                     </FlexPanel>
                 </Box>
-            </FixedPanel>
-        </div>;
+            </Panel>
+        </FlexPanel>;
     }
 }
 
 export let Game = ReactRedux.connect(
-    (s:state.Score) => ({score: s}), 
-    (dispatch: ReactRedux.Dispatch<any>) => ({onCommand: (c: commands.Command) => {dispatch(c);}}) 
+    (s:state.Score) => ({score: s}) 
 )(_Game)
 
 declare var module: any;
