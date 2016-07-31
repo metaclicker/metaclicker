@@ -15,7 +15,7 @@ export function tick(): Action {
     }
 }
 
-export function reduce(s: state.State, a: Action): state.State {
+export function reduce(s: state.State, a: Action) {
     if (typeof s === "undefined") { return init(); }
     
     switch (a.type) {

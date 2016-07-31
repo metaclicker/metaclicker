@@ -16,8 +16,8 @@ export let all: Command[] = [
     { type: "COMMAND", commandType: "ADVERTISE", name: "Advertise on forums", cost: 5 },
 ]
 
-export function reduce(s: state.State, a: Command): state.State {
-    let newState: state.State = _.merge({}, s, {
+export function reduce(s: state.State, a: Command) {
+    let newState = _.merge({}, s, {
         clicks: s.clicks - a.cost,
     });
 
@@ -43,6 +43,6 @@ export function reduce(s: state.State, a: Command): state.State {
     return newState;
 }
 
-function makeName(clickers: state.Clicker[]): string {
+function makeName(clickers: state.Clicker[]) {
     return "Clicker Game " + (clickers.length + 1);
 }
