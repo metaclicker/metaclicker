@@ -1,4 +1,5 @@
 import * as Redux from "redux";
+import * as _ from "lodash";
 import * as state from "./state";
 import * as commands from "./commands";
 
@@ -19,7 +20,7 @@ export function reduce(s: state.State, a: Action): state.State {
     
     switch (a.type) {
         case "TICK":
-            return Object.assign({}, s, {
+            return _.merge({}, s, {
                 clicks: s.clicks + s.clickers.map(c => c.players).reduce((x, y) => x + y, 0),
             });
 

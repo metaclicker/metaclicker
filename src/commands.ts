@@ -1,4 +1,5 @@
 import * as state from "./state";
+import * as _ from "lodash";
 
 type CommandType = "PLAY" | "ADVERTISE" | "DEVELOP"
 
@@ -16,13 +17,9 @@ export let all: Command[] = [
 ]
 
 export function reduce(s: state.State, a: Command): state.State {
-    let newState: state.State = {
+    let newState: state.State = _.merge({}, s, {
         clicks: s.clicks - a.cost,
-        clickers: s.clickers.map(c => ({
-            name: c.name,
-            players: c.players
-        }))
-    };
+    });
 
     switch (a.commandType) {     
         case "DEVELOP":
