@@ -1,3 +1,9 @@
+@keyframes bob {
+    0% { transform: translate(0px, 0px) }
+    50% { transform: translate(0px, 15px) }
+    100% { transform: translate(0px, 0px) }
+}
+
 .oval {
     font-family: Verdana;
     color: #222;
@@ -10,5 +16,7 @@
     justify-content: space-around;
    -webkit-user-select: none;   
    -moz-user-select: none;      
-   -ms-user-select: none;       
+   -ms-user-select: none;   
+    position: relative;
+    animation: bob 2s infinite linear;
 }
