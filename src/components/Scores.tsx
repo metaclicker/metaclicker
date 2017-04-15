@@ -2,7 +2,6 @@ import * as React from "react";
 import * as ReactRedux from "react-redux";
 import * as state from "../state";
 import {FlexPanel} from "../widgets/FlexPanel";
-import {BorderPanel} from "../widgets/BorderPanel";
 import {HeaderText} from "../widgets/HeaderText";
 
 interface Props {

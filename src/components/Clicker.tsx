@@ -1,5 +1,4 @@
 import * as React from "react";
-import * as ReactRedux from "react-redux";
 import * as state from "../state";
 let styles = require("./Clicker.css");
 

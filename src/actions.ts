@@ -1,4 +1,3 @@
-import * as Redux from "redux";
 import * as _ from "lodash";
 import * as state from "./state";
 import * as commands from "./commands";

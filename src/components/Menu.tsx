@@ -1,7 +1,5 @@
 import * as React from "react";
-import * as state from "../state";
 import {FlexPanel} from "../widgets/FlexPanel";
-import {FixedPanel} from "../widgets/FixedPanel";
 import {BorderPanel} from "../widgets/BorderPanel";
 import {Scores} from "./Scores";
 import {Commands} from "./Commands";

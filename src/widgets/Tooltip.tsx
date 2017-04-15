@@ -3,7 +3,7 @@ let styles = require("./Tooltip.css");
 
 interface Props {
     children?: React.ReactChild,
-    text: string
+    text: string | null
 }
 
 export function Tooltip(props: Props) {

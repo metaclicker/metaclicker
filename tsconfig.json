@@ -3,13 +3,17 @@
         "target": "es6",
         "jsx": "preserve",
         "outDir": "./dist/",
+        "moduleResolution": "node",
         "sourceMap": true,
         "noImplicitAny": true,
         "noImplicitReturns": true,
-        "noFallthroughCasesInSwitch": true
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strictNullChecks": true
     },
     "files": [
-        "./typings/index.d.ts",
         "./src/css.d.ts",
         "./src/index.tsx"
     ]
