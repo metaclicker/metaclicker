@@ -1,0 +1,24 @@
+.main {
+    font-size: 48pt;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+   -webkit-user-select: none;   
+   -moz-user-select: none;      
+   -ms-user-select: none;   
+}
+
+.main:hover {
+    cursor: pointer
+}
+
+@keyframes bob {
+    0% { transform: translate(0px, 0px) }
+    50% { transform: translate(0px, 15px) }
+    100% { transform: translate(0px, 0px) }
+}
+
+.bobbing {
+    animation: bob 2s infinite linear;
+}

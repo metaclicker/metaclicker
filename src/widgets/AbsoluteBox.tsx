@@ -9,7 +9,7 @@ interface Props {
     height?: string
 }
 
-export function FixedPanel(props: Props) {
+export function AbsoluteBox(props: Props) {
     var panelStyle: React.CSSProperties = {
         width: props.width || "auto",
         height: props.height || "auto",

@@ -1,14 +1,12 @@
 import * as React from "react";
-import {FlexPanel} from "../widgets/FlexPanel";
-import {Menu} from "./Menu";
+import {FlexBox} from "../widgets/FlexBox";
 import {Canvas} from "./Canvas";
 
 export class Game extends React.Component<{}, {}> {
     render() {
-        return <FlexPanel height="100vh">
-            <Menu/>
+        return <FlexBox height="100vh">
             <Canvas/>
-        </FlexPanel>;
+        </FlexBox>;
     }
 }
 

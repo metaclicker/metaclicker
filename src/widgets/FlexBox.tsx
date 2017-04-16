@@ -12,7 +12,7 @@ interface Props {
     flex?: number | string,
 }
 
-export function FlexPanel(props: Props) {
+export function FlexBox(props: Props) {
     let panelStyle = {
         width: props.width || "100%",
         height: props.height || "100%",
